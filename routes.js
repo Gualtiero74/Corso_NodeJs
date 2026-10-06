@@ -79,6 +79,7 @@ const method = req.method;
                 };
             });
         });
+        
     }
 }
 
@@ -91,7 +92,8 @@ const method = req.method;
 // More than one function using an object
 module.exports = {
     handler : requestHandler,
-    text : "Hard Coded Text"
+    text : "Hard Coded Text",
+    text2 : "hard coded text2"
 }
 // shortcut 
 // exports = requestHandler;

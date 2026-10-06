@@ -1,0 +1,24 @@
+{
+  "name": "corso_nodejs",
+  "version": "1.0.0",
+  "description": "Corso NodeJs preso da Youtube",
+  "homepage": "https://github.com/Gualtiero74/Corso_NodeJs#readme",
+  "bugs": {
+    "url": "https://github.com/Gualtiero74/Corso_NodeJs/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gualtiero74/Corso_NodeJs.git"
+  },
+  "license": "ISC",
+  "author": "Calabrese Gualtiero",
+  "type": "commonjs",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "dependencies": {
+    "nodemon": "^3.1.14"
+  }
+}
