@@ -84,17 +84,19 @@ const method = req.method;
 }
 
 // variouse export method
+
 // Simple for only one function
 // module.exports = requestHandler;
+
 // Simple for single function or anything else
 // module.exports.handler = requestHandler;
 // module.exports.text = "some hardcoded text"
+
 // More than one function using an object
 module.exports = {
-    handler : requestHandler,
-    text : "Hard Coded Text",
-    text2 : "hard coded text2"
+    handler : requestHandler
 }
+
 // shortcut 
 // exports = requestHandler;
 
