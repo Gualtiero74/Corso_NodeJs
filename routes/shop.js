@@ -9,7 +9,6 @@ PATH
 */
 const path = require('path')
 router.get('/',(req, res, next) => {
-    console.log("root");
     /*
     ----------------------------------------------
     nella risposta bisogna ricostruire il percorso del file da mostrare
