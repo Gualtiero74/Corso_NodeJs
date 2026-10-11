@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="/style/login.css">
+</head>
+
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/">Main</a></li>
+                <li><a href="/add-product">Add Product</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <form action="/login" method="POST">
+            <div id="div_title">
+                <h3>Login</h3>
+            </div>
+            <div id="div_user">
+                <label for="user">User</label>
+                <input type="text" name="user">
+            </div>
+            <div id="div_psw">
+                <label for="psw">Password</label>
+                <input type="password" name="psw">
+            </div>
+
+            <div id="div_button">
+                <button type="submit">Login</button>
+                <button type="submit">Iscriviti</button>
+            </div>
+        </form>
+    </main>
+</body>
+
+</html>
