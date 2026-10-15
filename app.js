@@ -1,5 +1,10 @@
 const express = require ('express');
 const app = express();
+// app.set('view engine','pug');
+// app.set('views','pug_views')
+app.set('view engine','ejs');
+app.set('views','ejs_views')
+
 const bodyParser = require('body-parser');
 const path = require('path');
 
@@ -56,6 +61,8 @@ app.use(adminRoute.router);
 app.use(shopRoute.router);
 //app.use(userRoute);
 
+
+
 /*
 ------------------------------------------------------
 Se una chiamata non soddisfa quelle nelle route, per non far crashare il sito, si utilizza una chiamata DUMMY che da come riposta una semplice pagina HTML
@@ -63,14 +70,24 @@ ed un codice 404
 ------------------------------------------------------
 */
 
+
+
+app.use((req, res, next) => {
+    res.status(404).render('404',{docTitle:'Page Not Found', path:'/404'} );
+});
+
+/*
 app.use((req, res, next) => {
     res.status(404).sendFile(path.join(__dirname,'views','code404.html'))
 });
+*/
 
 
 app.listen(3000);
 
 /*
+pass:adminRoute.formData[0].psw
+
 Vanilla JS Style (old)
 
 const http = require('http');

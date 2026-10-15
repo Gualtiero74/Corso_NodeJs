@@ -7,9 +7,10 @@ const router = express.Router();
 Per utilizzare i file html che compongono la parte frontend, bisogna importare un modulo di Node chiamato 
 PATH
 */
+/*
 const path = require('path')
 router.get('/',(req, res, next) => {
-    /*
+    
     ----------------------------------------------
     nella risposta bisogna ricostruire il percorso del file da mostrare
     utilizzare il metodo join per agganciare un livello all0altro
@@ -18,10 +19,10 @@ router.get('/',(req, res, next) => {
     lo si fa inserendo__dirname poi divisi da , inserire i vari nomi cartella, sino al nome file
     in caso in cui bisogna salire di un livello, inserire "..""
     ----------------------------------------------
-    */
+    
     res.sendFile(path.join(__dirname,'..', 'views', 'shop.html'))
 });
-
+*/
 
 module.exports = {
     router : router
