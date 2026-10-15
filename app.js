@@ -3,7 +3,7 @@ const app = express();
 // app.set('view engine','pug');
 // app.set('views','pug_views')
 app.set('view engine','ejs');
-app.set('views','ejs_views')
+app.set('views','views')
 
 const bodyParser = require('body-parser');
 const path = require('path');
