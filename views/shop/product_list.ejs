@@ -1,0 +1,52 @@
+<%- include('../includes/head.ejs') %>
+    <link rel="stylesheet" href="/style/main.css">
+    <link rel="stylesheet" href="/style/footer.css">
+    <link rel="stylesheet" href="/style/product_list.css">
+    </head>
+
+    <body>
+        <%- include('../includes/navigation.ejs') %>
+
+            <main>
+                <div class="card_container">
+                    <% if (prod.length> 0) {
+                        for (let product of prod) { %>
+                        <div class="card">
+                            <div class="card_header">
+                                <h1> Title: <%= product.title %>
+                                </h1>
+                            </div>
+                            <div class="card_main">
+                                <img src=" <%= product.img %> " alt="Immagine Libro">
+                            </div>
+                            <div class="card_footer">
+                                <div class="div_desc">
+                                    <div>
+                                    <textarea name="description" id="description">Description: <%= product.description %></textarea>>
+                                    </div>
+                                    <div>
+                                        <a class="read_more" href="">Read More...</a>
+                                    </div>
+                                </div>
+                                <div class="div_price">
+                                    <h1> Price: € <%= product.price %></h1>
+                                
+                                <div class="div_button">
+                                    <a href="/shop/cart " class="btn">Add To Cart</a>
+                                </div>
+                                </div>
+                            </div>
+                        </div>
+                
+                <% } %>
+                    <% } else { %>
+                        <h1>No Product Are Present</h1>
+                        <% } %>
+
+                            </div>
+            </main>
+            <%- include('../includes/end.ejs') %>
+
+    </body>
+
+    </html>

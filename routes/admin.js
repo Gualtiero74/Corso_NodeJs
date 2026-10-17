@@ -2,28 +2,14 @@ const { log } = require('console');
 const express = require('express');
 const router = express.Router();
 const path = require('path');
-const users = [];
-/*
-router.get('/add-product',(req, res, next) => {
-    res.sendFile(path.join(__dirname,'..','views','add-product.html'));
-});
-*/
-router.post('/login',(req, res, next) => {
-    console.log(req.body)
-    users.push(req.body)
-    console.log(users)
-    res.redirect('/')
-})
 
-router.get('/login',(req, res, next) => {
-    res.render('login',{path: '/login', docTitle:'Login Page'} )
-    }
-)
-router.get('/',(req, res, next) => {
-    res.render('shop',{users, docTitle:'Shop',path:'/'}) 
-})
+const adminController = require('../controllers/admin')
 
+router.post('/add_products',adminController.postNewProduct)
+router.get('/admin/add_products', adminController.getAddProducts)
+router.get('/admin/login',adminController.getLogin)
+router.get('/admin/products',adminController.getProducts)
+router.get('/admin/edit_product',adminController.getEdit)
 
-    exports.router = router,
-    exports.users = users
+exports.router = router
 

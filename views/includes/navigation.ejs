@@ -1,8 +1,16 @@
-    <header>
-        <nav>
-            <ul>
-                <li><a href="/">Main</a></li>
-                <li><a href="/login" class="<%= path === '/login' ? 'active' : ''%>">Login</a></li>
-            </ul>
-        </nav>
-    </header>
+<header>
+    <nav>
+        <ul>
+            <!-- User Views -->
+            <li><a href="/" class="<%= path === '/' ? 'active' : ''%>">Home</a></li>
+            <li><a href="/shop/product_list" class="<%= path === '/shop/product_list' ? 'active' : ''%>">Product List</a></li>
+            <li><a href="/shop/cart" class="<%= path === '/shop/cart' ? 'active' : ''%>">Cart</a></li>
+            <li><a href="/admin/login" class="<%= path === '/admin/login' ? 'active' : ''%>">Login</a></li>
+            <!-- Admin Views -->
+            <li><a href="/admin/add_products" class="<%= path === 'admin/add_products' ? 'active' : ''%>">Add
+Product</a>
+            </li>
+            <li><a href="/admin/products" class="<%= path === '/admin/products' ? 'active' : ''%>">Products</a></li>
+        </ul>
+    </nav>
+</header>

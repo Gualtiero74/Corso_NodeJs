@@ -1,0 +1,41 @@
+const { error } = require('console');
+const fs = require('fs');
+const { get } = require('https');
+const path = require('path');
+
+const p = path.join(__dirname, '..', 'data', 'products.json');
+
+const getProductFromFile = (cb) => {
+    fs.readFile(p, (error, data) => {
+        if (error) {
+            return cb([]);
+        }
+        cb(JSON.parse(data))
+    })
+}
+
+module.exports = class Product {
+    // constructor(title,img,description,price) 
+    constructor(prod) 
+    {
+        this.title = prod.title,
+        this.img = prod.img;
+        this.description = prod.description;
+        this.price = prod.price;
+    }
+
+    save() {
+        getProductFromFile(products => {
+            products.push(this);
+            fs.writeFile(p, JSON.stringify(products), (err) => {
+                console.log(err);
+            });
+        });
+    }
+
+    // questa funzione riceve come parametro il render proveniente dal controller
+    static fetchAllProduct(cb) {
+        getProductFromFile(cb)
+    }
+
+}
