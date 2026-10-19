@@ -30,10 +30,8 @@
                                 </div>
                                 <div class="div_price">
                                     <h1> Price: € <%= product.price %></h1>
-                                
-                                <div class="div_button">
-                                    <a href="/shop/cart " class="btn">Add To Cart</a>
-                                </div>
+                                <a href="/shop/product_detail/<%= product.id %>" class="btn">Details</a>
+                                <%- include('../includes/add_to_cart.ejs',{product:product}) %>
                                 </div>
                             </div>
                         </div>

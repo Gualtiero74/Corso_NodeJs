@@ -1,22 +1,37 @@
 <%- include('../includes/head.ejs') %>
     <link rel="stylesheet" href="/style/main.css">
     <link rel="stylesheet" href="/style/shop.css">
+    <link rel="stylesheet" href="/style/product_detail.css">
     <link rel="stylesheet" href="/style/footer.css">
-</head>
-<body>
-    <%- include('../includes/navigation.ejs') %>
+    </head>
 
-    <main>
-        <% if (prod.length > 0) { 
-            for (let product of prod) { %>
-            <h1> Prodotto: <%= product.product %></h1>
-            <h3> Valore: <%= product.value %></h3>
-            <% } %>
-        <% } else { %>
-            <h1>No Product Are Present</h1>
-        <% } %>
-    </main>
-        <%- include('../includes/end.ejs') %>
+    <body class="body">
+        <%- include('../includes/navigation.ejs') %>
+            <main class="main">
+                <div class="card_container">
+                    <div class="div">
+                        <h1>Product Description</h1>
+                    </div>
+                    <div id="div_title" class="div">
+                        <h3>Product Name: <%= product.title %>
+                        </h3>
+                    </div>
+                    <div id="div_psw" class="div">
+                        <img src="<%= product.img %>" alt="No Immage" class="img">
+                    </div>
+                    <div id="div_user" class="div">
+                        <h3>Description: <%= product.title %>
+                        </h3>
+                    </div>
+                    <div id="div_psw" class="div">
+                        <h3>Price: € <%= product.price%>
+                        </h3>
+                    </div>
+                                <%- include('../includes/add_to_cart.ejs',{product:product}) %>
 
-</body>
-</html>
+                </div>
+            </main>
+            <%- include('../includes/end.ejs') %>
+    </body>
+
+    </html>

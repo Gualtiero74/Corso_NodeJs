@@ -8,7 +8,9 @@ exports.getAddProducts = (req, res, next) => {
 }
 
 exports.postNewProduct = (req, res, next) => {
+    const prodId = Date.now()
     const prodData = {
+        id:prodId.toString(),
         title:req.body.title,
         img:req.body.img,
         description:req.body.description,

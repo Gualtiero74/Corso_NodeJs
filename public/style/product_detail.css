@@ -1,0 +1,28 @@
+.body{
+
+}
+.main{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding-top: 2rem;
+}
+.card-container{
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+}
+.form{
+    border: 1px solid black;
+    border-radius: 1rem;
+    padding: 1rem;
+}
+.div{
+    border: 1px solid red;
+    padding: 1rem;
+}
+.img{
+    width: 100%;
+    height: auto;
+}

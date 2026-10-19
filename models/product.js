@@ -18,6 +18,7 @@ module.exports = class Product {
     // constructor(title,img,description,price) 
     constructor(prod) 
     {
+        this.id = prod.id;
         this.title = prod.title,
         this.img = prod.img;
         this.description = prod.description;
@@ -36,6 +37,14 @@ module.exports = class Product {
     // questa funzione riceve come parametro il render proveniente dal controller
     static fetchAllProduct(cb) {
         getProductFromFile(cb)
+    }
+
+    static fetchById(id, cb){
+        getProductFromFile(products => {
+            const product = products.find(p => p.id === id);
+            cb(product)
+        })
+
     }
 
 }
