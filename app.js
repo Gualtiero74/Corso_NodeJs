@@ -9,16 +9,20 @@ const path = require('path');
 //Importo i file delle route
 const adminRoute = require('./routes/admin');
 const shopRoute = require('./routes/shop');
+const cartRoute = require('./routes/cart');
+
 const { publicDecrypt } = require('crypto');
-const errotController = require('./controllers/error')
+
+const errorController = require('./controllers/error')
 
 
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(express.static(path.join(__dirname,'public')));
 app.use(adminRoute.router);
+app.use(cartRoute.router);
 app.use(shopRoute.router);
 
-app.use(errotController.error404);
+app.use(errorController.error404);
 
 app.listen(3000);
 

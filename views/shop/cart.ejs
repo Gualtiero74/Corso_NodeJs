@@ -3,15 +3,38 @@
     <link rel="stylesheet" href="/style/shop.css">
     <link rel="stylesheet" href="/style/footer.css">
 </head>
-<body>
-    <%- include('../includes/navigation.ejs') %>
+    <body class="body">
+        <%- include('../includes/navigation.ejs') %>
 
-    <main>
-<h1>
-Siamo nel CART
-</h1>    
-</main>
-        <%- include('../includes/end.ejs') %>
+        <h1>Siamo in Cart</h1>
+<hr>
+        <H2>Wish List</H2>
+            <& 
+                if (prod.products.length > 0) 
+                {for (let product of prod){ 
+            %>
+                    <h4>Oggetti in lista <%= prod.length %></h4>
+            <label for="quantity">Quantity</label>
+            <input type="text" name="title" value=" <%= product.qty %>"> 
+            <label for="id">Id</label>
+            <input type="text" name="id" value="<%= product.id %>">
+            <label for="price">Price</label>
+            <input type="text" name="price" value="<%= price %> ">
+                 <% } %>
+                    <% } else { %>
+                        <h1>No Product Are Present</h1>
+                        <% } %> 
 
-</body>
+        <form action="/shop/DeleteCart" method="POST">
+            <label for="title">Title</label>
+            <input type="text" name="title">
+            <label for="id">Id</label>
+            <input type="text" name="id">
+            <label for="price">Price</label>
+            <input type="text" name="price">
+            <Button type="submit">Delete</Button>
+
+        </form>
+            <%- include('../includes/end.ejs') %>
+    </body>
 </html>

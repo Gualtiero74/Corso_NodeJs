@@ -7,12 +7,13 @@ const p = path.join(__dirname, '..', 'data', 'products.json');
 
 const getProductFromFile = (cb) => {
     fs.readFile(p, (error, data) => {
-        if (error) {
-            return cb([]);
-        }
-        cb(JSON.parse(data))
-    })
-}
+            try {
+                cb(JSON.parse(data))
+            } catch (error) {
+                return cb([])
+            }
+        })}
+
 
 module.exports = class Product {
     // constructor(title,img,description,price) 

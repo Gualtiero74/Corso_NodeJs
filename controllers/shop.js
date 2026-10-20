@@ -1,13 +1,5 @@
 const ClassProducts = require('../models/product')
 
-
-exports.getCart = (req, res, next) => {
-    res.render('./shop/cart', {
-        path: '/shop/cart',
-        docTitle: 'Your Cart'
-    })
-}
-
 // a fetchAllProduct passo direttamente il render
 exports.getProducts = (req, res, next) => {
     ClassProducts.fetchAllProduct(products => {
@@ -26,21 +18,6 @@ exports.getIndex = (req, res, next) => {
     })
 }
 
-exports.postCart = (req, res, next) => {
-const prodId = req.body.productId;
-console.log(prodId)
-/*
-    ClassProducts.fetchById(prodId, product => {
-        res.render('./shop/cart', {
-            product: product,
-            path: '/shop/cart',
-            docTitle: 'Cart'
-        }
-    )}
-)
-    */
-   res.redirect('/shop/cart')
-}
 
 exports.getDetails = (req, res, next) => {
     const prodId = req.params.productId;
