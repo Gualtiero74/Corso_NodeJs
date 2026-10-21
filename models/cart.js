@@ -1,20 +1,26 @@
 const { prependOnceListener } = require('cluster');
 const { error } = require('console');
 const fs = require('fs');
+const fs_promise = require('fs').promises
 const { get } = require('https');
 const path = require('path');
 
 const p = path.join(__dirname, '..', 'data', 'cart.json');
 
+
 const getProductFromFile = (cb) => {
     fs.readFile(p, (error, data) => {
-            try {
-                cb(JSON.parse(data))
-            } catch (error) {
-                return cb([])
-            }
-        })}
-
+        try {
+            cb(JSON.parse(data))
+        } catch (error) {
+            console.log(error)
+                cart = { products: [], totalPrice: 0 };
+                fs.writeFile(p, JSON.stringify(cart), error => {
+                    console.log(error)
+                })
+        }
+    })
+}
 
 module.exports = class Cart {
     // i'll get for this function the ID and product price
@@ -42,7 +48,7 @@ module.exports = class Cart {
                 cart.products[existingProductIndex] = updatedProduct
             } else {
                 // if id did not exist i get the id
-                updatedProduct = { id: id, qty: 1 };
+                updatedProduct = { id: id, singlePrice: price, qty: 1 };
                 // add to the existing the cart.products the new product 
                 cart.products = [...cart.products, updatedProduct];
             }
@@ -54,22 +60,28 @@ module.exports = class Cart {
             })
         });
     }
-    static deleteProduct(id,price) {
+    static deleteProduct(id, price) {
         fs.readFile(p, (error, data) => {
             let cart = { products: [], totalPrice: 0 };
             cart = JSON.parse(data);
             const existingProductIndex = cart.products.findIndex(prod => prod.id === id)
             cart.products.splice(existingProductIndex, 1)
-            cart.totalPrice = Number(cart.totalPrice)- Number(price)
-            fs.writeFile(p, JSON.stringify(cart), error => {
-                console.log(error)
-            })
+            cart.totalPrice = Number(cart.totalPrice) - Number(price)
+            console.log('quarto log-' + cart.products.length)
+            if (cart.products.length > 0) {
+                fs.writeFile(p, JSON.stringify(cart), error => {
+                    console.log(error)
+                })
+            } else if (cart.products.length === 0) {
+                cart = { products: [], totalPrice: 0 };
+                fs.writeFile(p, JSON.stringify(cart), error => {
+                    console.log(error)
+                })
+            }
         })
     }
-    static showCart() {
-
-    }
-    static getAllProducts(cb){
-        getProductFromFile(cb)    
+    
+    static getAllProducts(cb) {
+        getProductFromFile(cb)
     };
 }

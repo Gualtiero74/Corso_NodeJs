@@ -2,39 +2,41 @@
     <link rel="stylesheet" href="/style/main.css">
     <link rel="stylesheet" href="/style/shop.css">
     <link rel="stylesheet" href="/style/footer.css">
-</head>
+    <link rel="stylesheet" href="/style/cart.css">
+    </head>
+
     <body class="body">
         <%- include('../includes/navigation.ejs') %>
+            <main class="main">
+                <div>
+                    <H1>Wish List</H1>
+                </div>
+                <hr>
+                <% if (prod.length> 0) {
+                    for (let product of prod) {
+                    %>
+                    <div class="dis_flex_row">
+                        <label for="quantity">Quantity</label>
+                        <input type="text" name="title" value=" <%= product.qty %>">
+                        <label for="id">Id</label>
+                        <input type="text" name="id" value="<%= product.id %>">
+                        <label for="price">Price</label>
+                        <input type="text" name="price" value="<%= product.singlePrice %> ">
+                        <form action="/shop/DeleteCart" method="POST">
+                            <Button type="submit">Delete</Button>
+                            <input type="hidden" name="backId" value="<%= product.id %>">
+                            <input type="hidden" name="backPrice" value="<%= product.singlePrice %>">
+                        </form>
+                    </div>
+                    <% } %>
+                        <% } else { %>
+                            <h2>No Product Are Present</h2>
+                            <% } %>
+                                                <div>
+                        <h2>Total Price: <%= price%></h2>
+                    </div>
 
-        <h1>Siamo in Cart</h1>
-<hr>
-        <H2>Wish List</H2>
-            <& 
-                if (prod.products.length > 0) 
-                {for (let product of prod){ 
-            %>
-                    <h4>Oggetti in lista <%= prod.length %></h4>
-            <label for="quantity">Quantity</label>
-            <input type="text" name="title" value=" <%= product.qty %>"> 
-            <label for="id">Id</label>
-            <input type="text" name="id" value="<%= product.id %>">
-            <label for="price">Price</label>
-            <input type="text" name="price" value="<%= price %> ">
-                 <% } %>
-                    <% } else { %>
-                        <h1>No Product Are Present</h1>
-                        <% } %> 
-
-        <form action="/shop/DeleteCart" method="POST">
-            <label for="title">Title</label>
-            <input type="text" name="title">
-            <label for="id">Id</label>
-            <input type="text" name="id">
-            <label for="price">Price</label>
-            <input type="text" name="price">
-            <Button type="submit">Delete</Button>
-
-        </form>
+            </main>
             <%- include('../includes/end.ejs') %>
-    </body>
-</html>
+        </body>
+    </html>

@@ -5,17 +5,16 @@ exports.postAddProductCart= (req, res, next) => {
     const productID = req.body.productId
     const price = req.body.price
     ClassCart.addProduct(productID,price);
-    res.redirect('/')
+    res.redirect('/shop/product_list')
 }
 
 exports.postDeleteProductCart =(req,res,next) =>{
-    const id = req.body.id;
-    const price = req.body.price;
+    const id = req.body.backId;
+    const price = req.body.backPrice;
+    console.log(id)
+    console.log(price)
     ClassCart.deleteProduct(id,price);
-    res.render('./shop/cart',{
-                docTitle:'Cart',
-        path:'/shop/cart'
-    })
+    res.redirect('/shop/cart')
 }
 
 exports.getCart = (req, res, next) => {
@@ -26,8 +25,5 @@ exports.getCart = (req, res, next) => {
             path: '/shop/cart',
             docTitle: 'Your Cart',
         })
-        console.log(products)
-        console.log(products.products)
-        console.log(products.products.length)
     })
 };
