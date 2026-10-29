@@ -4,15 +4,14 @@ const ClassProducts = require('../models/product')
 exports.postAddProductCart= (req, res, next) => {
     const productID = req.body.productId
     const price = req.body.price
-    ClassCart.addProduct(productID,price);
+    const img = req.body.img;
+    ClassCart.addProduct(productID,price,img);
     res.redirect('/shop/product_list')
 }
 
 exports.postDeleteProductCart =(req,res,next) =>{
     const id = req.body.backId;
     const price = req.body.backPrice;
-    console.log(id)
-    console.log(price)
     ClassCart.deleteProduct(id,price);
     res.redirect('/shop/cart')
 }

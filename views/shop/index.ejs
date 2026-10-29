@@ -1,17 +1,124 @@
 <%- include('../includes/head.ejs') %>
-    <link rel="stylesheet" href="/style/main.css">
-    <link rel="stylesheet" href="/style/shop.css">
-    <link rel="stylesheet" href="/style/footer.css">
-</head>
-<body>
-    <%- include('../includes/navigation.ejs') %>
+    <!-- <link rel="stylesheet" href="/style/index.css"> -->
+    </head>
 
-    <main>
-<h1>
-Ben Venuti nel Mio Negozio
-</h1>    
-</main>
-        <%- include('../includes/end.ejs') %>
+    <body>
+        <%- include('../includes/navigation.ejs') %>
+            <main class="main">
 
-</body>
-</html>
+                <div class="d-flex flex-column">
+                    <h1 class="fc-black text-center p-5 ">
+                        Il Negozio delle Meraviglie
+                    </h1>
+                </div>
+
+                <div id="mioCarousel" class="carousel slide mt-5" data-bs-ride="carousel">
+
+                    <!-- Indicatori (i trattini in basso per cambiare slide) -->
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#mioCarousel" data-bs-slide-to="0" class="active bg-black"
+                            aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#mioCarousel" data-bs-slide-to="1" class="bg-black"
+                            aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#mioCarousel" data-bs-slide-to="2" class="bg-black"
+                            aria-label="Slide 3"></button>
+                        <button type="button" data-bs-target="#mioCarousel" data-bs-slide-to="3" class="bg-black"
+                            aria-label="Slide 4"></button>
+                    </div>
+
+                    <!-- Contenuto delle slide -->
+                    <div class="carousel-inner">
+
+                        <!-- Prima Slide (Deve avere la classe 'active') -->
+                        <div class="carousel-item active">
+                            <!-- Contenitore Immagine 1 -->
+                            <div class="d-flex justify-content-center align-content-between vh-55 ">
+                                <img src="/pictures/1.jpg" class="d-block border-2 border-danger rounded vh-40"
+                                    alt="Prima immagine">
+                                <div class="carousel-caption d-block d-md-block fc-black">
+                                    <h5>Primo Titolo</h5>
+                                    <p>Descrizione per la prima immagine dello slider.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Seconda Slide -->
+                        <div class="carousel-item">
+                            <!-- Contenitore Immagine 2 -->
+                            <div class="d-flex justify-content-center align-content-between vh-55">
+                                <img src="/pictures/1.jpg" class="d-block border-2 border-danger rounded vh-40"
+                                    alt="Prima immagine">
+                                <div class="carousel-caption d-block d-md-block fc-black">
+                                    <h5>Secondo Titolo</h5>
+                                    <p>Descrizione per la prima immagine dello slider.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Terza Slide -->
+                        <div class="carousel-item">
+                            <!-- Contenitore Immagine 3 -->
+                            <div class="d-flex justify-content-center align-content-between vh-55">
+                                <img src="/pictures/1.jpg" class="d-block border-2 border-danger rounded vh-40"
+                                    alt="Prima immagine">
+                                <div class="carousel-caption d-block d-md-block fc-black">
+                                    <h5>Terzo Titolo</h5>
+                                    <p>Descrizione per la prima immagine dello slider.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Ultima Slide -->
+                        <div class="carousel-item">
+                            <!-- Contenitore Immagine 4 -->
+                            <div class="d-flex justify-content-center align-content-between vh-55">
+                                <img src="/pictures/1.jpg" class="d-block border-2 border-danger rounded vh-40"
+                                    alt="Prima immagine">
+                                <div class="carousel-caption d-block d-md-block fc-black">
+                                    <h5>Ultimo Titolo</h5>
+                                    <p>Descrizione per la prima immagine dello slider.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Controlli Precedente e Successivo (Frecce laterali) -->
+                    <button class="carousel-control-prev fc-black" type="button" data-bs-target="#mioCarousel"
+                        data-bs-slide="prev">
+                        <span class=" fc-black">Previouse</span>
+                    </button>
+                    <button class="carousel-control-next fc-black" type="button" data-bs-target="#mioCarousel"
+                        data-bs-slide="next">
+                        <span class=" fc-black">Next</span>
+                    </button>
+                </div>
+
+
+
+
+                <section class="d-flex flex-column align-items-center ">
+                    <div class="d-flex flex-row w-75">
+                        <p>
+                            Eccovi arrivati, qui potrete trovare tutto ciò che può servire per la casa, auto, moto, e
+                            tanto
+                            ancora
+                            Nuovi arrivi tutti i giorni e prezzi <em>Concorrenziali</em>.
+                            Effettuate il <a href="" class="ancor">Login</a> per poter esporare tutti i nostri oggetti e
+                            metterli nel carrello anche
+                            un futuro acquisto.
+                            Iscrivetevi alla <a href="" class="ancor">News Letter</a> per rimanere sempre aggiornati
+                            Seguite il nostro canale <em>Telegram</em> per essere subito i primi ad essere informati
+                            delle
+                            novità
+                        </p>
+
+                    </div>
+                </section>
+
+            </main>
+            <%- include('../includes/end.ejs') %>
+
+    </body>
+
+    </html>

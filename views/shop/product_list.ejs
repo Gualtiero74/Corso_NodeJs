@@ -1,45 +1,37 @@
 <%- include('../includes/head.ejs') %>
-    <link rel="stylesheet" href="/style/main.css">
-    <link rel="stylesheet" href="/style/footer.css">
     <link rel="stylesheet" href="/style/product_list.css">
-    <link rel="stylesheet" href="/style/card-container.css">
+    <!-- <link rel="stylesheet" href="/style/card-container.css"> -->
     </head>
 
     <body>
         <%- include('../includes/navigation.ejs') %>
             <main>
-                <div class="card_container">
+                <div class="d-flex flex-wrap justify-content-center p-5 mt-5">
                     <% if (prod.length> 0) {
                         for (let product of prod) { %>
-                        <div class="card">
-                            <div class="card_header">
-                                <h1> Title: <%= product.title %>
+                        <div class="card p-5 m-2" style="width: 18rem;">
+
+                            <img class="card-img-top" src="<%= product.img %>" alt="Immagine">
+                            <div class="card-body">
+                                <h1 class="card-title">
+                                    <%= product.title %>
                                 </h1>
                             </div>
-                            <div class="card_main">
-                                <img class="img" src=" <%= product.img %> " alt="Immagine Libro">
+                            <div class="card-body">
+                                <a href="/shop/product_detail/<%= product.id %>">Details</a>
                             </div>
-                            <div class="card_footer">
-                                <div class="div_desc">
-                                    <div>
-                                    <textarea name="description" id="description">Description: <%= product.description %></textarea>
-                                    </div>
-                                    <div>
-                                        <a class="read_more" href="/shop/product_detail/<%= product.id %>" >Read More...</a>
-                                    </div>
-                                </div>
-                                <div class="div_price">
-                                    <h1> Price: € <%= product.price %></h1>
+                            <div class="card-body">
+                                <h1>Price: € <%= product.price %>
+                                </h1>
+                            </div>
+                            <div class="card-body">
                                 <%- include('../includes/add_to_cart.ejs',{product:product}) %>
-                                </div>
                             </div>
                         </div>
-                
-                <% } %>
-                    <% } else { %>
-                        <h1>No Product Are Present</h1>
                         <% } %>
-
+                            <% } else { %>
+                                <h1>No Product Are Present</h1>
+                                <% } %>
                 </div>
             </main>
             <%- include('../includes/end.ejs') %>

@@ -18,6 +18,9 @@ const errorController = require('./controllers/error')
 
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(express.static(path.join(__dirname,'public')));
+app.use('/css', express.static(path.join(__dirname, 'node_modules/bootstrap/dist/css')));
+app.use('/js', express.static(path.join(__dirname, 'node_modules/bootstrap/dist/js')));
+app.use('/js', express.static(path.join(__dirname, 'node_modules/@popperjs/core/dist/umd')));
 app.use(adminRoute.router);
 app.use(cartRoute.router);
 app.use(shopRoute.router);

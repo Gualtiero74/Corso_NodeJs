@@ -1,7 +1,17 @@
-                    <form action="/shop/AddCart" method="POST" class="form">
-                        <div id="div_button" class="div">
-                            <button class="btn" type="submit">Cart</button>
-                            <input type="hidden"  name="productId" value="<%= product.id %>">
-                            <input type="hidden" name="price" value="<%= product.price %>">
-                        </div>
-                    </form>
+<form action="/shop/AddCart" method="POST" class="form">
+    <div>
+        <button class="btn-cart" type="submit">
+            <!-- Icona SVG del carrello -->
+            <svg class="icon-cart" viewBox="0 0 24 24" fill="none" xmlns="http://w3.org">
+                <path d="M6.29999 5H21L19 14H7.39999L5.39999 4H2" stroke="currentColor" stroke-width="2"
+                    stroke-linecap="round" stroke-linejoin="round" />
+                <circle cx="9" cy="19" r="1.5" fill="currentColor" />
+                <circle cx="17" cy="19" r="1.5" fill="currentColor" />
+            </svg>
+        </button>
+        <input type="hidden" name="productId" value="<%= product.id %>">
+        <input type="hidden" name="price" value="<%= product.price %>">
+        <input type="hidden" name="img" value="<%= product.img %>">
+    </div>
+</form>
+

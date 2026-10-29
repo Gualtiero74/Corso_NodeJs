@@ -24,7 +24,7 @@ const getProductFromFile = (cb) => {
 
 module.exports = class Cart {
     // i'll get for this function the ID and product price
-    static addProduct(id, price) {
+    static addProduct(id, price, img) {
         // fetch all existing product
         fs.readFile(p, (error, data) => {
             let cart = { products: [], totalPrice: 0 };
@@ -47,8 +47,8 @@ module.exports = class Cart {
                 cart.products = [...cart.products];
                 cart.products[existingProductIndex] = updatedProduct
             } else {
-                // if id did not exist i get the id
-                updatedProduct = { id: id, singlePrice: price, qty: 1 };
+                // if id id not exist i get the id
+                updatedProduct = { id: id, singlePrice: price,img:img, qty: 1 };
                 // add to the existing the cart.products the new product 
                 cart.products = [...cart.products, updatedProduct];
             }
@@ -67,7 +67,6 @@ module.exports = class Cart {
             const existingProductIndex = cart.products.findIndex(prod => prod.id === id)
             cart.products.splice(existingProductIndex, 1)
             cart.totalPrice = Number(cart.totalPrice) - Number(price)
-            console.log('quarto log-' + cart.products.length)
             if (cart.products.length > 0) {
                 fs.writeFile(p, JSON.stringify(cart), error => {
                     console.log(error)

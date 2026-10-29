@@ -1,1 +1,31 @@
+/* gestione pulsante con icona */
+.btn-cart {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;                  /* Spazio tra l'icona e il testo */
+  background-color:var(--bs-body-bg);   /* Colore di sfondo verde */
+  color:black;             /* Testo e icona bianchi */
+  border: none;
+  padding: 12px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.1s ease;
+}
+
+/* Effetto al passaggio del mouse (Hover) */
+.btn-cart:hover {
+border:1px solid black;
+}
+/* Effetto al clic (Active) */
+.btn-cart:active {
+  transform: scale(0.98);
+}
+
+/* Dimensioni dell'icona SVG */
+.icon-cart {
+  width: 20px;
+  height: 20px;
+}
 

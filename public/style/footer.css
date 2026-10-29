@@ -1,7 +1,13 @@
 footer{
-background-color: rgb(164, 164, 164);
-position: fixed;
-left: 0;
-bottom: 0;
-width: 100%;
+    background-color: rgb(5, 59, 1);
+    position:fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    flex-shrink: 0;
+}
+h3{
+    padding:1rem;
+    color: rgb(254, 253, 253);
 }

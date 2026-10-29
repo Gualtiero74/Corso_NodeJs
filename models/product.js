@@ -7,18 +7,17 @@ const p = path.join(__dirname, '..', 'data', 'products.json');
 
 const getProductFromFile = (cb) => {
     fs.readFile(p, (error, data) => {
-            try {
-                cb(JSON.parse(data))
-            } catch (error) {
-                return cb([])
-            }
-        })}
+        try {
+            cb(JSON.parse(data))
+        } catch (error) {
+            return cb([])
+        }
+    })
+}
 
 
 module.exports = class Product {
-    // constructor(title,img,description,price) 
-    constructor(prod) 
-    {
+    constructor(prod) {
         this.id = prod.id;
         this.title = prod.title,
         this.img = prod.img;
@@ -28,11 +27,33 @@ module.exports = class Product {
 
     save() {
         getProductFromFile(products => {
-            products.push(this);
-            fs.writeFile(p, JSON.stringify(products), (err) => {
+            if (this.id) {
+                    const existingProdutIndex = products.findIndex(prod => prod.id === this.id)
+                    const updatedProduct = [...products];
+                    updatedProduct[existingProdutIndex] = this;
+                    fs.writeFile(p, JSON.stringify(updatedProduct), (err) => {
+                        console.log(err);
+                    })
+            } else {
+                    const prodId = Date.now()
+                    this.id = prodId.toString();
+                    products.push(this);
+                    fs.writeFile(p, JSON.stringify(products), (err) => {
+                        console.log(err);
+                    });
+                    }
+            }
+        );
+    }
+
+    static delete(id) {
+        getProductFromFile(products => {
+            const findProductIndex = products.findIndex(prod => prod.id === id)
+            products.splice(findProductIndex, 1)
+            fs.writeFile(p,JSON.stringify(products), (err) => {
                 console.log(err);
-            });
-        });
+            })
+        })
     }
 
     // questa funzione riceve come parametro il render proveniente dal controller
@@ -40,7 +61,7 @@ module.exports = class Product {
         getProductFromFile(cb)
     }
 
-    static fetchById(id, cb){
+    static fetchById(id, cb) {
         getProductFromFile(products => {
             const product = products.find(p => p.id === id);
             cb(product)

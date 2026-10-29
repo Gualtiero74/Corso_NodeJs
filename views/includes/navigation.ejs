@@ -1,12 +1,59 @@
 <header>
-    <nav>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary sticky-top">
+        <div class="container-fluid">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01"
+                aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
+                <!-- <a class="navbar-brand" href="#">Hidden brand</a> -->
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/">Home</a></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/shop/product_list">Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/shop/cart">Cart</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/admin/edit_product">Add Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/admin/products">Admin Products</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/admin/login">Login</a>
+                    </li>
+
+                    <!-- <li class="nav-item">
+                        <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                    </li> -->
+                </ul>
+                <!-- <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form> -->
+            </div>
+        </div>
+    </nav>
+
+
+
+
+
+
+
+
+    <!-- <nav class="navbar navbar-expand-lg bg-body-tertiary">    
         <ul>
             <li><a href="/" class="<%= path === '/' ? 'active' : ''%>">Home</a></li>
             <li><a href="/shop/product_list" class="<%= path === '/shop/product_list' ? 'active' : ''%>">Product List</a></li>
             <li><a href="/shop/cart" class="<%= path === '/shop/cart' ? 'active' : ''%>">Cart</a></li>
-            <li><a href="/admin/add_products" class="<%= path === 'admin/add_products' ? 'active' : ''%>">Add Product</a></li>
+            <li><a href="/admin/edit_product" class="<%= path === 'admin/add_products' ? 'active' : ''%>">Add Product</a></li>
             <li><a href="/admin/products" class="<%= path === '/admin/products' ? 'active' : ''%>">Products</a></li>
             <li><a href="/admin/login" class="<%= path === '/admin/login' ? 'active' : ''%>">Login</a></li>
         </ul>
-    </nav>
+    </nav> -->
 </header>
