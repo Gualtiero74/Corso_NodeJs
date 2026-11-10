@@ -19,23 +19,23 @@
                         <div class="container-fluid ">
                             <div class="d-inline-block">
                                 <label class="form-label m-0 " for="img"></label>
-                                <img src="<%= product.img %>" alt="Immagine" class="vh-15 m-0">
+                                <img src="<%= product.productData.img %>" alt="Immagine" class="vh-15 m-0">
                             </div>
 
                             <div class="d-inline-block">
                                 <label class="form-label m-0" for="quantity">Quantity</label>
-                                <input class="form-text m-0" type="text" name="title" value="<%= product.qty %>">
+                                <input class="form-text m-0" type="text" name="title" value="<%= product.quantity %>">
                             </div>
 
                             <div class="d-inline-block">
                                 <label class="form-label m-0" for="id">Id</label>
-                                <input class="form-text m-0" type="text" name="id" value="<%= product.id %>">
+                                <input class="form-text m-0" type="text" name="id" value="<%= product.productData.id %>">
                             </div>
 
                             <div class="d-inline-block">
                                 <label class="form-label m-0" for="price">Price</label>
                                 <input class="form-text m-0" type="text" name="price"
-                                    value="<%= product.singlePrice %> ">
+                                    value="<%= product.productData.price %> ">
                             </div>
                             <form action="/shop/DeleteCart" method="POST" class="d-inline-block">
                                 <Button type="submit">Delete</Button>

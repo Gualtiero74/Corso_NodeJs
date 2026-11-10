@@ -3,10 +3,14 @@ const fs = require('fs');
 const { get } = require('https');
 const path = require('path');
 
-const p = path.join(__dirname, '..', 'data', 'products.json');
+const productsList = path.join(__dirname, '..', 'data', 'products.json');
+const cartList = path.join(__dirname, '..', 'data', 'cart.json')
+
+const ClassCart = require('../models/cart');
+const { json } = require('body-parser');
 
 const getProductFromFile = (cb) => {
-    fs.readFile(p, (error, data) => {
+    fs.readFile(productsList, (error, data) => {
         try {
             cb(JSON.parse(data))
         } catch (error) {
@@ -31,14 +35,14 @@ module.exports = class Product {
                     const existingProdutIndex = products.findIndex(prod => prod.id === this.id)
                     const updatedProduct = [...products];
                     updatedProduct[existingProdutIndex] = this;
-                    fs.writeFile(p, JSON.stringify(updatedProduct), (err) => {
+                    fs.writeFile(productsList, JSON.stringify(updatedProduct), (err) => {
                         console.log(err);
                     })
             } else {
                     const prodId = Date.now()
                     this.id = prodId.toString();
                     products.push(this);
-                    fs.writeFile(p, JSON.stringify(products), (err) => {
+                    fs.writeFile(productsList, JSON.stringify(products), (err) => {
                         console.log(err);
                     });
                     }
@@ -47,10 +51,16 @@ module.exports = class Product {
     }
 
     static delete(id) {
+        let cart = {};
         getProductFromFile(products => {
             const findProductIndex = products.findIndex(prod => prod.id === id)
+            fs.readFile(cartList, (err, data)=>{
+            cart = JSON.parse(data)
+            console.log(cart.products)})
+            
+            // const isProductInCart = products.find(prod => prod.id === cart.id)
             products.splice(findProductIndex, 1)
-            fs.writeFile(p,JSON.stringify(products), (err) => {
+            fs.writeFile(productsList,JSON.stringify(products), (err) => {
                 console.log(err);
             })
         })
