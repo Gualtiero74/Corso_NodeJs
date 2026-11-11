@@ -31,6 +31,8 @@ module.exports = class Cart {
             if (!error) {
                 cart = JSON.parse(data);
             }
+            console.log(cart)
+            console.log()
             // cart analisis if product already exist
             // check if ID alreayd exist ed save the index position
             const existingProductIndex = cart.products.findIndex(prod => prod.id === id)
